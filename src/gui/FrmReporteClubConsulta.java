@@ -112,19 +112,15 @@ public class FrmReporteClubConsulta extends JFrame implements ItemListener {
 	List<Club> data = new ArrayList<Club>();
 
 	protected void do_comboBox_itemStateChanged(ItemEvent arg0) {
+		ClubModel model = new ClubModel();
 		int index = comboBox.getSelectedIndex();
 		if (index == 0) {
-			data.clear();
+			data = model.listaClub();
 		} else {
 			String item = comboBox.getSelectedItem().toString();
 			String s[] = item.split(":");
 			String id = s[0];
-			ClubModel model = new ClubModel();
-			if (id.equals("-1")) {
-				data = model.listaClub();
-			} else {
-				data = model.consultaClub(id);
-			}
+			data = model.consultaClub(id);
 		}
 
 		// 1 La data

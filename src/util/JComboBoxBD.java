@@ -21,7 +21,7 @@ public class JComboBoxBD extends JComboBox<String> {
 			conn = MySqlDBConexion.getConexion();
 			pstm = conn.prepareStatement(sql);
 			rs = pstm.executeQuery();
-			addItem("[seleccione]");
+			addItem("[Todos]");
 			while (rs.next()) {
 				addItem(rs.getString(1) + ": " + rs.getString(2));
 			}
